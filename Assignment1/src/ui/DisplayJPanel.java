@@ -4,7 +4,13 @@
  */
 package ui;
 
-import javax.swing.ImageIcon;
+import java.awt.Image;
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.*;
 import model.User;
 
 /**
@@ -166,9 +172,9 @@ public class DisplayJPanel extends javax.swing.JPanel {
                                 .addComponent(jLabel7)
                                 .addGap(18, 18, 18)
                                 .addComponent(jtelephoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
                         .addComponent(jphoto, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20))
+                        .addContainerGap(65, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -301,22 +307,22 @@ public class DisplayJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void displayUserInformation() {
-         
-         //jTextName.setText(product.getName());
-         
-         
-         
-         //jphoto.setIcon(new ImageIcon(user.getImage()));
-         //jphoto.setText(user.getImagePath().toString());
-         jphoto.setIcon(new ImageIcon(user.getImagePath().toString()));
-         
-         
+        try {
+            File file= new File(user.getImagePath().toString());
+            Image image = ImageIO.read(file).getScaledInstance(200, 200, 200);
+            Icon icon = new ImageIcon(image);
+            jphoto.setIcon(icon);
+        } catch (IOException ex) {
+            Logger.getLogger(DisplayJPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
          jfirstName.setText(user.getFirstName());
          jlastName.setText(user.getLastName());
          jdob.setText(user.getDob());
-         
-         jage.setText(Integer.toString(user.getAge()));
-         jtelephoneNumber.setText(Long.toString(user.getTelephoneNumber()));
+         //jage.setText(Integer.toString(user.getAge()));
+         jage.setText(user.getAge());
+         //jtelephoneNumber.setText(Long.toString(user.getTelephoneNumber()));
+         jtelephoneNumber.setText((user.getTelephoneNumber()));
          jemail.setText(user.getEmail());
          
          jstreetLine1.setText(user.getStreetLine1());

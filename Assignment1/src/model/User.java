@@ -17,8 +17,8 @@ public class User {
     private String firstName;
     private String lastName;
     private String dob;
-    private int age;
-    private long telephoneNumber;
+    private String age;
+    private String telephoneNumber;
     private String email;
     private String streetLine1;
     private String streetLine2;
@@ -35,6 +35,7 @@ public class User {
     private String degree2_End;
     
     private File imagePath;
+    
     public File getImagePath() {
         return imagePath;
     }
@@ -66,19 +67,19 @@ public class User {
         this.dob = dob;
     }
 
-    public int getAge() {
+    public String getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(String age) {
         this.age = age;
     }
 
-    public long getTelephoneNumber() {
+    public String getTelephoneNumber() {
         return telephoneNumber;
     }
 
-    public void setTelephoneNumber(long telephoneNumber) {
+    public void setTelephoneNumber(String telephoneNumber) {
         this.telephoneNumber = telephoneNumber;
     }
 

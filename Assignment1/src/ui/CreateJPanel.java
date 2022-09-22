@@ -316,7 +316,6 @@ public class CreateJPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel18, javax.swing.GroupLayout.Alignment.LEADING)
@@ -401,9 +400,14 @@ public class CreateJPanel extends javax.swing.JPanel {
                                         .addGap(18, 18, 18)
                                         .addComponent(jdegree1EndDate, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addGap(0, 0, Short.MAX_VALUE))))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                .addComponent(jButton1)
-                .addComponent(jphoto, javax.swing.GroupLayout.PREFERRED_SIZE, 926, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton1)
+                    .addComponent(jphoto, javax.swing.GroupLayout.PREFERRED_SIZE, 926, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -468,10 +472,10 @@ public class CreateJPanel extends javax.swing.JPanel {
                         .addComponent(jdegree2StartDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel23)
                         .addComponent(jdegree2EndDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
+                .addGap(27, 27, 27)
                 .addComponent(jLabel24)
                 .addGap(18, 18, 18)
-                .addComponent(jphoto, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jphoto, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -559,8 +563,10 @@ public class CreateJPanel extends javax.swing.JPanel {
          user.setFirstName(jfirstName.getText());
          user.setLastName(jlastName.getText());
          user.setDob(jdob.getText());
-         user.setAge(Integer.parseInt(jage.getText()));
-         user.setTelephoneNumber(Long.parseLong(jtelephoneNumber.getText()));
+        // user.setAge(Integer.parseInt(jage.getText()));
+        user.setAge(jage.getText());
+         //user.setTelephoneNumber(Long.parseLong(jtelephoneNumber.getText()));
+         user.setTelephoneNumber(jtelephoneNumber.getText());
          user.setEmail(jemail.getText());
          
          user.setStreetLine1(jstreetLine1.getText());
@@ -585,6 +591,7 @@ public class CreateJPanel extends javax.swing.JPanel {
 
     private void jphotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jphotoActionPerformed
         user.setImagePath(jphoto.getSelectedFile());
+        //user.setImagePath(jphoto.get);
         JOptionPane.showMessageDialog(this,user.getImagePath()+" photo uploaded successfully");
     }//GEN-LAST:event_jphotoActionPerformed
 
