@@ -1,4 +1,4 @@
-# Create-User
+# User-Creation
 Developed a java application that will allow a user to create a user profile and then display the results.
 
 The two use cases are:
